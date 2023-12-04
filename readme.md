@@ -69,7 +69,7 @@ How will you change the implementation of your function to work with this large 
 2. **Merging Results:** Ensure effective merging of results across individual chunks to maintain data integrity and continuity
 3. **Split Activities Handling:** Develop strategies to manage activities that might span across multiple chunks to avoid data fragmentation
 4. **Chunk Size Trade-offs:** You may want to discuss about an optimal size for each chunk considering trade-offs between processing efficiency and resource usage
-
+5. **Chunk Complete:** You can assume that an activity has been received completely when the chunk with the key endTime is received for this activity
 
 ## Possible Approach:
 

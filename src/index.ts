@@ -30,6 +30,7 @@ export function getResidentActivities(
 // 2. Ensure effective merging of results across individual chunks to maintain data integrity and continuity
 // 3. Develop strategies to manage activities that might span across multiple chunks to avoid data fragmentation
 // 4. You may want to talk about an optimal size for each chunk considering trade-offs between processing efficiency and resource usage
+// 5. You can assume that an activity has been received completely when the chunk with the key endTime is received for this activity
 
 // Possible approach:
 // Consider a scenario where a generator function chunkedActivityGenerator
