@@ -28,6 +28,7 @@ The function should return an array of selected activities IDs for the resident 
 - The input activities are non-empty.
 - The input activities don't follow any order of time in particular.
 - The start and end times of activities are non-negative integers.
+- You can't use any built-in sorting functions. If you need to sort elements, you will have to write your own algorithm.
 
 ## Examples
 
