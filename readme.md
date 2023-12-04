@@ -28,6 +28,7 @@ The function should return an array of selected activities IDs for the resident 
 - The input activities are non-empty.
 - The input activities don't follow any order of time in particular.
 - The start and end times of activities are non-negative integers.
+- You can't use any built-in sorting functions. If you need to sort elements, you will have to write your own algorithm.
 
 ## Examples
 
@@ -55,3 +56,35 @@ The function should return an array of selected activities IDs for the resident 
 **Output**: [2, 3]
 
 **Explanation**: A maximum of two activities can be performed. The activity with ID 3 is assigned and it starts at 1 and finishes at 11. The activity with ID 1 can't be assigned since it begins at 3, and during that time the resident is still in the activity with ID 3. At 11, the resident will be assigned to the activity that starts at the nearest time, which is the activity with ID 2 that starts at 11. At 21 the resident is out of the activity with ID 2 and there aren't more activities that start after that time.
+
+
+# Bonus: Handling Large Datasets of Resident Activities
+
+In scenarios where resident activity data is too large to fit into memory at once, changes in the implementation are required to effectively handle this large dataset.
+How will you change the implementation of your function to work with this large dataset?
+
+## Considerations:
+
+1. **External Storage:** You may use external storage like disk or a database to store and process data
+2. **Merging Results:** Ensure effective merging of results across individual chunks to maintain data integrity and continuity
+3. **Split Activities Handling:** Develop strategies to manage activities that might span across multiple chunks to avoid data fragmentation
+4. **Chunk Size Trade-offs:** You may want to discuss about an optimal size for each chunk considering trade-offs between processing efficiency and resource usage
+
+
+## Possible Approach:
+
+Consider a scenario where a generator function `chunkedActivityGenerator` processes resident activities. The function delegates the processing of chunks to a function named `processActivities`, where the logic and actions performed on these chunks determine the generator's behavior.
+
+```javascript
+    function* chunkedActivityGenerator() {
+    const activitiesChunks = [
+        { id: 1, name: 'Movie Night' },
+        { id: 1, startTime: 3, endTime: 16 },
+        { id: 2, name: "Reading Club" },
+        { id: 3, name: "Gardening Session" },
+        { id: 2, startTime: 11, endTime: 21 },
+        { id: 3, startTime: 1, endTime: 11 },
+    ]
+    yield* processActivities(activitiesChunks);
+    }
+```
