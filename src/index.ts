@@ -21,19 +21,21 @@ export function getResidentActivities(
 
 // Bonus: Handling Large Datasets of Resident Activities
 
-// Assume we are getting resident activities as input data that is too large to fit into memory all at once
+// In scenarios where resident activity data is too large to fit into memory at once, changes in 
+// the implementation are required to effectively handle this large dataset.
 // How will you change the implementation of your function to work with this large dataset?
 
 // Considerations:
-// 1. You may use external storage like disk or a db
-// 2. Consider trade-offs with the size of each chunk
-// 3. Think about how to effectively merge results across individual chunks
-// 4. An activity might be split across chunks
+// 1. You may use external storage like disk or a database to store and process data
+// 2. Ensure effective merging of results across individual chunks to maintain data integrity and continuity
+// 3. Develop strategies to manage activities that might span across multiple chunks to avoid data fragmentation
+// 4. You may want to talk about an optimal size for each chunk considering trade-offs between processing efficiency and resource usage
 
-// For example, let's suppose we have the next generator function named chunkedActivityGenerator
-// The processing of the activitiesChunks array gets delegated to the processActivities function
-// The processActivities function is expected to handle these chunks or elements in some way, so its
-// logic and actions performed on these chunks determine the behavior and values produced by the generator
+// Possible approach:
+// Consider a scenario where a generator function chunkedActivityGenerator
+// processes resident activities. The function delegates the processing of chunks 
+// to a function named processActivities, where the logic and actions performed 
+// on these chunks determine the generator's behavior.
 
 // function* chunkedActivityGenerator() {
 //   const activitiesChunks = [
@@ -48,4 +50,4 @@ export function getResidentActivities(
 // }
 
 // Write some pseudocode with a possible approach and explain your solution
-// You can write as many functions as you need for your solution
+// You can write as many functions as you need for your implementation
